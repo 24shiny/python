@@ -50,3 +50,24 @@ path.write_text(items)
 items_copy = path.read_text()
 numbers_copy = json.loads(items_copy)
 print(numbers_copy)
+
+# another example of json
+data = '{"name":"kim", "age":40, "gender":"male"}'
+data2 = {"name":"Lee", "age":12, "gender":"female"}
+with open('member.json','w'):
+    items = json.dumps(data)
+path = Path('member.json')
+path.write_text(items)
+
+items2 = json.dumps(data2) 
+print(items2, type(items2))
+# str type data from server to its client
+items2_1 = json.loads(items2)
+print(items2_1, type(items2_1),items2_1["age"])
+# dic type data from the client to its server
+
+import pickle
+new_data = [1,5,3,4,6]
+with open('new_member.pk','rb') as w_file:
+    pickle.dump(data,'new_member.pk')
+new_data2 = pickle.load('new_member.pk')
